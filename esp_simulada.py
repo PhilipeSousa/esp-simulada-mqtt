@@ -10,7 +10,7 @@ load_dotenv()
 
 try:
     porta = int(os.getenv("PORT"))
-    topico = os.getenv("TOPIC")
+    topico = os.getenv("TOPIC_DATA")
     if not topico:
         raise ValueError("Topico não definido corretamente")
 except Exception as e:
@@ -37,7 +37,7 @@ def nova_mensagem_foi_recebida(client, userdata, msg):
 def gera_dados_sensores():
     data = {
         "Temperatura Ambiente": round(random.uniform(20.0, 40.0), 1),
-        "Temperatura de Água": round(random.uniform(20.0, 45.0),1),
+        "Temperatura da água": round(random.uniform(20.0, 45.0),1),
         "Umidade do ar": round(random.uniform(20, 98),0),
         "TDS": round(random.uniform(200.0, 1000.0),1),
         "Bomba": random.choice(["Ligada", "Desligada"]),
